@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MiTienda - Amazon Clone</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+<header>
+  <div class="top-bar">
+    <div class="logo">MiTienda</div>
+    <div class="search-bar">
+      <input type="text" id="search-input" placeholder="Buscar productos...">
+      <button id="search-btn"><i class="fas fa-search"></i></button>
+    </div>
+    <div class="header-icons">
+      <a href="carrito.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
+      <a href="#">Hola, Iniciar sesión</a>
+    </div>
+  </div>
+  <nav class="categories-nav">
+    <a href="#">Electrónica</a>
+    <a href="#">Hogar</a>
+    <a href="#">Ropa</a>
+    <a href="#">Deportes</a>
+    <a href="#">Juguetes</a>
+  </nav>
+</header>
+
+<main>
+  <div class="banner">
+    <img src="decoraciones/banner.jpg" alt="Banner principal">
+  </div>
+
+  <section class="productos-destacados">
+    <h2>Productos Destacados</h2>
+    <div id="productos-container" class="productos-grid"></div>
+  </section>
+
+  <section class="ofertas">
+    <h2>Ofertas Especiales</h2>
+    <div id="ofertas-container" class="productos-grid"></div>
+  </section>
+</main>
+
+<footer>
+  <p>&copy; 2025 MiTienda. Todos los derechos reservados.</p>
+</footer>
+
+<script src="productos.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
