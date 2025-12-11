@@ -1,0 +1,141 @@
+/* Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: #f2f2f2;
+}
+
+header {
+  background: #131921;
+  color: white;
+}
+
+.top-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #ff9900;
+}
+
+.search-bar {
+  flex: 1;
+  display: flex;
+  margin: 0 20px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 4px 0 0 4px;
+}
+
+.search-bar button {
+  padding: 8px 12px;
+  border: none;
+  background: #febd69;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #f3a847;
+}
+
+.header-icons a {
+  color: white;
+  margin-left: 15px;
+  text-decoration: none;
+}
+
+.categories-nav {
+  background: #232f3e;
+  padding: 10px 20px;
+}
+
+.categories-nav a {
+  color: white;
+  margin-right: 15px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.categories-nav a:hover {
+  text-decoration: underline;
+}
+
+.banner img {
+  width: 100%;
+  max-height: 400px;
+  object-fit: cover;
+  margin-bottom: 20px;
+}
+
+.productos-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.producto-card {
+  background: white;
+  border-radius: 4px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+  padding: 10px;
+  width: 200px;
+  text-align: center;
+  transition: transform 0.2s;
+}
+
+.producto-card:hover {
+  transform: translateY(-5px);
+}
+
+.producto-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.producto-card h3 {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.producto-card p {
+  color: #b12704;
+  font-weight: bold;
+}
+
+.producto-card button {
+  margin-top: 10px;
+  padding: 8px;
+  border: none;
+  background: #febd69;
+  cursor: pointer;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.producto-card button:hover {
+  background: #f3a847;
+}
+
+footer {
+  background: #131921;
+  color: white;
+  text-align: center;
+  padding: 15px 0;
+  margin-top: 20px;
+}
