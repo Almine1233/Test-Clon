@@ -1,63 +1,137 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AliStyle - Tienda</title>
+  <title>MiTienda · Amazon 2024 - Demo</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
   <script defer src="productos.js"></script>
   <script defer src="main.js"></script>
 </head>
 <body>
-  <header class="top-header">
-    <div class="brand">
-      <button id="menu-btn" class="menu-btn">☰</button>
-      <a href="index.html" class="logo"><span class="logo-accent">Ali</span>Style</a>
+  <header class="site-header">
+    <div class="header-top">
+      <div class="brand">
+        <button id="hamburger" class="hamburger" aria-label="Abrir menú">☰</button>
+        <a href="index.html" class="logo"><span class="logo-accent">Mi</span>Tienda</a>
+      </div>
+
+      <form id="search-form" class="search-form" onsubmit="return false">
+        <div class="search-dept">
+          <select id="dept-select">
+            <option value="">Todos los departamentos</option>
+          </select>
+        </div>
+        <input id="search-input" class="search-input" placeholder="Buscar productos, marcas y más..." />
+        <button id="search-btn" class="search-submit" aria-label="Buscar">🔍</button>
+      </form>
+
+      <div class="header-actions">
+        <button id="account-btn" class="link">Hola, Inicia sesión</button>
+        <a href="carrito.html" class="cart link">🛒 <span id="cart-count">0</span></a>
+      </div>
     </div>
-    <div class="search-area">
-      <select id="select-categoria" class="select-categoria">
-        <option value="">Todos los departamentos</option>
-      </select>
-      <input id="search-input" type="search" placeholder="Buscar productos, marcas y más..." />
-      <button id="search-btn" class="search-btn">🔍</button>
-    </div>
-    <div class="header-right">
-      <button id="wishlist-btn" class="icon-btn">♡ <span id="wishlist-count">0</span></button>
-      <a href="carrito.html" class="icon-btn">🛒 <span id="cart-count">0</span></a>
-      <a href="#" class="account-link">Hola, Inicia sesión</a>
-    </div>
+
+    <nav class="departments-bar" id="departments-bar">
+      <a href="#" class="dept">Ofertas</a>
+      <a href="#" class="dept">Electrónica</a>
+      <a href="#" class="dept">Hogar</a>
+      <a href="#" class="dept">Informática</a>
+      <a href="#" class="dept">Deportes</a>
+      <a href="#" class="dept">Moda</a>
+    </nav>
   </header>
 
-  <nav id="side-menu" class="side-menu closed">
-    <button id="close-menu" class="close-menu">✕</button>
-    <ul id="menu-list"></ul>
-  </nav>
+  <aside id="side-panel" class="side-panel closed" aria-hidden="true">
+    <button id="side-close" class="side-close">✕</button>
+    <div class="side-content">
+      <h3>Todos los departamentos</h3>
+      <ul id="side-cats" class="side-cats"></ul>
+    </div>
+  </aside>
 
-  <main>
+  <main class="page">
+    <!-- Hero carousel -->
     <section class="hero">
-      <div class="hero-slider" id="hero-slider">
-        <div class="slide"><img src="https://images.unsplash.com/photo-1523475496153-3d6ccf9d3c7c?w=1600&q=80&auto=format&fit=crop" alt="banner1"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80&auto=format&fit=crop" alt="banner2"></div>
-      </div>
-      <div class="hero-promos">
-        <div class="promo-box">Envío gratis en pedidos seleccionados</div>
-        <div class="promo-box">Ofertas hasta -70% — Solo hoy</div>
+      <div id="hero-slider" class="hero-slider">
+        <div class="slide"><img src="https://images.unsplash.com/photo-1526178615944-1b1a6fbeeeae?w=1600&q=80&auto=format&fit=crop" alt="banner1"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=1600&q=80&auto=format&fit=crop" alt="banner2"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80&auto=format&fit=crop" alt="banner3"></div>
       </div>
     </section>
 
-    <section class="section-row">
+    <!-- Sections -->
+    <section class="container section">
       <h2 class="section-title">Ofertas destacadas</h2>
-      <div class="carousel" id="ofertas-carousel"></div>
+      <div id="featured-carousel" class="carousel"></div>
     </section>
 
-    <section class="section-row">
-      <h2 class="section-title">Más vendidos</h2>
-      <div class="carousel" id="masvendidos-carousel"></div>
+    <section class="container section">
+      <h2 class="section-title">Los más vendidos</h2>
+      <div id="bestseller-carousel" class="carousel"></div>
     </section>
 
-    <section class="two-column">
-      <aside class="filters">
+    <section class="container section two-col">
+      <aside class="filters card">
         <h3>Filtros</h3>
         <label>Precio</label>
-        <div class="filter-row">
-          <input id="min-price" type="number" placeholder="Min" />
+        <div class="price-row">
+          <input id="min-price" type="number" placeholder="Min">
+          <input id="max-price" type="number" placeholder="Max">
+        </div>
+        <label>Ordenar por</label>
+        <select id="sort-select">
+          <option value="relevance">Relevancia</option>
+          <option value="price-asc">Precio: menor a mayor</option>
+          <option value="price-desc">Precio: mayor a menor</option>
+          <option value="rating-desc">Mejor valorados</option>
+        </select>
+        <button id="apply-filters" class="btn-primary">Aplicar</button>
+      </aside>
+
+      <section class="products card">
+        <div class="products-header">
+          <span id="results-count">0 productos</span>
+          <div class="view-toggle">
+            <button id="grid-view" class="small-btn active">Grid</button>
+            <button id="list-view" class="small-btn">Lista</button>
+          </div>
+        </div>
+        <div id="products-grid" class="products-grid"></div>
+      </section>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div>© 2025 MiTienda</div>
+      <div>Demo estilo Amazon (original no copiado)</div>
+    </div>
+  </footer>
+
+  <!-- Templates -->
+  <template id="card-tpl">
+    <article class="product-card">
+      <div class="card-img"><img src="" alt=""></div>
+      <div class="card-body">
+        <h3 class="card-title"></h3>
+        <div class="card-meta">
+          <span class="rating"></span>
+          <span class="reviews"></span>
+        </div>
+        <div class="price-row">
+          <span class="price"></span>
+          <span class="old-price"></span>
+        </div>
+        <div class="card-actions">
+          <button class="btn-primary add-to-cart">Añadir al carrito</button>
+          <button class="small-btn add-wish">♡</button>
+        </div>
+      </div>
+    </article>
+  </template>
+
+</body>
+</html>
