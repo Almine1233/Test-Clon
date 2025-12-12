@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Checkout · AliStyle</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="productos.js"></script>
+  <script defer src="main.js"></script>
+</head>
+<body>
+  <header class="top-header small">
+    <a href="index.html" class="logo"><span class="logo-accent">Ali</span>Style</a>
+  </header>
+
+  <main class="checkout-main">
+    <h1>Checkout</h1>
+    <form id="checkout-form" class="checkout-form">
+      <div class="form-grid">
+        <label>Nombre completo<input name="name" required></label>
+        <label>Dirección<input name="address" required></label>
+        <label>Ciudad<input name="city" required></label>
+        <label>Código postal<input name="zip" required></label>
+        <label>Método de pago
+          <select name="method">
+            <option>Tarjeta</option>
+            <option>PayPal</option>
+            <option>Contra reembolso</option>
+          </select>
+        </label>
+      </div>
+      <div class="order-summary" id="checkout-summary"></div>
+      <button type="submit" class="btn-primary">Pagar ahora</button>
+    </form>
+  </main>
+
+  <footer>
+    <div class="footer-inner">© 2025 AliStyle</div>
+  </footer>
+
+  <script>
+    document.getElementById('checkout-form').addEventListener('submit', function(e){
+      e.preventDefault();
+      // Simular pago
+      localStorage.removeItem('cart');
+      alert('Pago simulado. ¡Gracias por tu compra!');
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
