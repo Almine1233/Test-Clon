@@ -1,63 +1,57 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>AliStyle - Tienda</title>
+  <title>Producto · MiTienda</title>
   <link rel="stylesheet" href="style.css">
   <script defer src="productos.js"></script>
   <script defer src="main.js"></script>
 </head>
 <body>
-  <header class="top-header">
-    <div class="brand">
-      <button id="menu-btn" class="menu-btn">☰</button>
-      <a href="index.html" class="logo"><span class="logo-accent">Ali</span>Style</a>
-    </div>
-    <div class="search-area">
-      <select id="select-categoria" class="select-categoria">
-        <option value="">Todos los departamentos</option>
-      </select>
-      <input id="search-input" type="search" placeholder="Buscar productos, marcas y más..." />
-      <button id="search-btn" class="search-btn">🔍</button>
-    </div>
-    <div class="header-right">
-      <button id="wishlist-btn" class="icon-btn">♡ <span id="wishlist-count">0</span></button>
-      <a href="carrito.html" class="icon-btn">🛒 <span id="cart-count">0</span></a>
-      <a href="#" class="account-link">Hola, Inicia sesión</a>
+  <header class="site-header small">
+    <div class="header-top">
+      <a href="index.html" class="logo"><span class="logo-accent">Mi</span>Tienda</a>
+      <div class="header-actions">
+        <a href="carrito.html" class="cart link">🛒 <span id="cart-count-2">0</span></a>
+      </div>
     </div>
   </header>
 
-  <nav id="side-menu" class="side-menu closed">
-    <button id="close-menu" class="close-menu">✕</button>
-    <ul id="menu-list"></ul>
-  </nav>
+  <main class="container page product-page">
+    <div id="product-detail" class="card"></div>
+  </main>
 
-  <main>
-    <section class="hero">
-      <div class="hero-slider" id="hero-slider">
-        <div class="slide"><img src="https://images.unsplash.com/photo-1523475496153-3d6ccf9d3c7c?w=1600&q=80&auto=format&fit=crop" alt="banner1"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80&auto=format&fit=crop" alt="banner2"></div>
+  <footer class="site-footer">
+    <div class="container footer-inner">© 2025 MiTienda</div>
+  </footer>
+
+  <template id="detail-tpl">
+    <div class="detail-grid">
+      <div class="detail-media"><img src="" alt=""></div>
+      <div class="detail-info">
+        <h1 class="detail-title"></h1>
+        <div class="card-meta"><span class="rating"></span> · <span class="reviews"></span></div>
+        <p class="detail-desc"></p>
+        <div class="price-row">
+          <span class="price big-price"></span>
+          <span class="old-price"></span>
+        </div>
+        <div class="qty-row">
+          <label>Cantidad <input type="number" id="detail-qty" value="1" min="1"></label>
+        </div>
+        <div class="card-actions">
+          <button id="detail-add" class="btn-primary">Añadir al carrito</button>
+          <button id="detail-wish" class="small-btn">♡ Añadir a wishlist</button>
+        </div>
+        <div class="shipping">Envío estimado: 3–7 días · Devoluciones 30 días</div>
       </div>
-      <div class="hero-promos">
-        <div class="promo-box">Envío gratis en pedidos seleccionados</div>
-        <div class="promo-box">Ofertas hasta -70% — Solo hoy</div>
-      </div>
+    </div>
+    <section class="reviews card">
+      <h3>Opiniones</h3>
+      <div id="reviews-list"></div>
     </section>
+  </template>
 
-    <section class="section-row">
-      <h2 class="section-title">Ofertas destacadas</h2>
-      <div class="carousel" id="ofertas-carousel"></div>
-    </section>
-
-    <section class="section-row">
-      <h2 class="section-title">Más vendidos</h2>
-      <div class="carousel" id="masvendidos-carousel"></div>
-    </section>
-
-    <section class="two-column">
-      <aside class="filters">
-        <h3>Filtros</h3>
-        <label>Precio</label>
-        <div class="filter-row">
-          <input id="min-price" type="number" placeholder="Min" />
+</body>
+</html>
