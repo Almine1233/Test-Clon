@@ -1,55 +1,63 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>MiTienda - Amazon Clone</title>
-<link rel="stylesheet" href="style.css">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>AliStyle - Tienda</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="productos.js"></script>
+  <script defer src="main.js"></script>
 </head>
 <body>
-<header>
-  <div class="top-bar">
-    <div class="logo">MiTienda</div>
-    <div class="search-bar">
-      <input type="text" id="search-input" placeholder="Buscar productos...">
-      <button id="search-btn"><i class="fas fa-search"></i></button>
+  <header class="top-header">
+    <div class="brand">
+      <button id="menu-btn" class="menu-btn">☰</button>
+      <a href="index.html" class="logo"><span class="logo-accent">Ali</span>Style</a>
     </div>
-    <div class="header-icons">
-      <a href="carrito.html"><i class="fas fa-shopping-cart"></i> <span id="cart-count">0</span></a>
-      <a href="#">Hola, Iniciar sesión</a>
+    <div class="search-area">
+      <select id="select-categoria" class="select-categoria">
+        <option value="">Todos los departamentos</option>
+      </select>
+      <input id="search-input" type="search" placeholder="Buscar productos, marcas y más..." />
+      <button id="search-btn" class="search-btn">🔍</button>
     </div>
-  </div>
-  <nav class="categories-nav">
-    <a href="#">Electrónica</a>
-    <a href="#">Hogar</a>
-    <a href="#">Ropa</a>
-    <a href="#">Deportes</a>
-    <a href="#">Juguetes</a>
+    <div class="header-right">
+      <button id="wishlist-btn" class="icon-btn">♡ <span id="wishlist-count">0</span></button>
+      <a href="carrito.html" class="icon-btn">🛒 <span id="cart-count">0</span></a>
+      <a href="#" class="account-link">Hola, Inicia sesión</a>
+    </div>
+  </header>
+
+  <nav id="side-menu" class="side-menu closed">
+    <button id="close-menu" class="close-menu">✕</button>
+    <ul id="menu-list"></ul>
   </nav>
-</header>
 
-<main>
-  <div class="banner">
-    <img src="decoraciones/banner.jpg" alt="Banner principal">
-  </div>
+  <main>
+    <section class="hero">
+      <div class="hero-slider" id="hero-slider">
+        <div class="slide"><img src="https://images.unsplash.com/photo-1523475496153-3d6ccf9d3c7c?w=1600&q=80&auto=format&fit=crop" alt="banner1"></div>
+        <div class="slide"><img src="https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=1600&q=80&auto=format&fit=crop" alt="banner2"></div>
+      </div>
+      <div class="hero-promos">
+        <div class="promo-box">Envío gratis en pedidos seleccionados</div>
+        <div class="promo-box">Ofertas hasta -70% — Solo hoy</div>
+      </div>
+    </section>
 
-  <section class="productos-destacados">
-    <h2>Productos Destacados</h2>
-    <div id="productos-container" class="productos-grid"></div>
-  </section>
+    <section class="section-row">
+      <h2 class="section-title">Ofertas destacadas</h2>
+      <div class="carousel" id="ofertas-carousel"></div>
+    </section>
 
-  <section class="ofertas">
-    <h2>Ofertas Especiales</h2>
-    <div id="ofertas-container" class="productos-grid"></div>
-  </section>
-</main>
+    <section class="section-row">
+      <h2 class="section-title">Más vendidos</h2>
+      <div class="carousel" id="masvendidos-carousel"></div>
+    </section>
 
-<footer>
-  <p>&copy; 2025 MiTienda. Todos los derechos reservados.</p>
-</footer>
-
-<script src="productos.js"></script>
-<script src="main.js"></script>
-</body>
-</html>
+    <section class="two-column">
+      <aside class="filters">
+        <h3>Filtros</h3>
+        <label>Precio</label>
+        <div class="filter-row">
+          <input id="min-price" type="number" placeholder="Min" />
