@@ -1,137 +1,52 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>MiTienda · Amazon 2024 - Demo</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-  <script defer src="productos.js"></script>
-  <script defer src="main.js"></script>
+<meta charset="UTF-8">
+<title>AURA — Productos con alma</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Productos minimalistas diseñados para durar toda la vida.">
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 <body>
-  <header class="site-header">
-    <div class="header-top">
-      <div class="brand">
-        <button id="hamburger" class="hamburger" aria-label="Abrir menú">☰</button>
-        <a href="index.html" class="logo"><span class="logo-accent">Mi</span>Tienda</a>
-      </div>
 
-      <form id="search-form" class="search-form" onsubmit="return false">
-        <div class="search-dept">
-          <select id="dept-select">
-            <option value="">Todos los departamentos</option>
-          </select>
-        </div>
-        <input id="search-input" class="search-input" placeholder="Buscar productos, marcas y más..." />
-        <button id="search-btn" class="search-submit" aria-label="Buscar">🔍</button>
-      </form>
+<header class="nav">
+  <h1 class="logo">AURA</h1>
 
-      <div class="header-actions">
-        <button id="account-btn" class="link">Hola, Inicia sesión</button>
-        <a href="carrito.html" class="cart link">🛒 <span id="cart-count">0</span></a>
-      </div>
-    </div>
+  <nav>
+    <a href="#">Shop</a>
+    <a href="#">Historia</a>
+    <a href="#">Contacto</a>
+    <button class="cart-btn">
+      🛒 <span id="cartCount">0</span>
+    </button>
+  </nav>
+</header>
 
-    <nav class="departments-bar" id="departments-bar">
-      <a href="#" class="dept">Ofertas</a>
-      <a href="#" class="dept">Electrónica</a>
-      <a href="#" class="dept">Hogar</a>
-      <a href="#" class="dept">Informática</a>
-      <a href="#" class="dept">Deportes</a>
-      <a href="#" class="dept">Moda</a>
-    </nav>
-  </header>
+<section class="hero">
+  <div>
+    <h2>Menos cosas.<br>Más significado.</h2>
+    <p>Objetos diseñados con intención.</p>
+    <button class="cta">Explorar colección</button>
+  </div>
+</section>
 
-  <aside id="side-panel" class="side-panel closed" aria-hidden="true">
-    <button id="side-close" class="side-close">✕</button>
-    <div class="side-content">
-      <h3>Todos los departamentos</h3>
-      <ul id="side-cats" class="side-cats"></ul>
-    </div>
-  </aside>
+<main class="wrapper">
 
-  <main class="page">
-    <!-- Hero carousel -->
-    <section class="hero">
-      <div id="hero-slider" class="hero-slider">
-        <div class="slide"><img src="https://images.unsplash.com/photo-1526178615944-1b1a6fbeeeae?w=1600&q=80&auto=format&fit=crop" alt="banner1"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1518773553398-650c184e0bb3?w=1600&q=80&auto=format&fit=crop" alt="banner2"></div>
-        <div class="slide"><img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?w=1600&q=80&auto=format&fit=crop" alt="banner3"></div>
-      </div>
-    </section>
+<h3 class="section-title">Colección</h3>
 
-    <!-- Sections -->
-    <section class="container section">
-      <h2 class="section-title">Ofertas destacadas</h2>
-      <div id="featured-carousel" class="carousel"></div>
-    </section>
+<section class="products" id="products"></section>
 
-    <section class="container section">
-      <h2 class="section-title">Los más vendidos</h2>
-      <div id="bestseller-carousel" class="carousel"></div>
-    </section>
+</main>
 
-    <section class="container section two-col">
-      <aside class="filters card">
-        <h3>Filtros</h3>
-        <label>Precio</label>
-        <div class="price-row">
-          <input id="min-price" type="number" placeholder="Min">
-          <input id="max-price" type="number" placeholder="Max">
-        </div>
-        <label>Ordenar por</label>
-        <select id="sort-select">
-          <option value="relevance">Relevancia</option>
-          <option value="price-asc">Precio: menor a mayor</option>
-          <option value="price-desc">Precio: mayor a menor</option>
-          <option value="rating-desc">Mejor valorados</option>
-        </select>
-        <button id="apply-filters" class="btn-primary">Aplicar</button>
-      </aside>
+<footer>
+<p>© 2026 AURA</p>
+</footer>
 
-      <section class="products card">
-        <div class="products-header">
-          <span id="results-count">0 productos</span>
-          <div class="view-toggle">
-            <button id="grid-view" class="small-btn active">Grid</button>
-            <button id="list-view" class="small-btn">Lista</button>
-          </div>
-        </div>
-        <div id="products-grid" class="products-grid"></div>
-      </section>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div>© 2025 MiTienda</div>
-      <div>Demo estilo Amazon (original no copiado)</div>
-    </div>
-  </footer>
-
-  <!-- Templates -->
-  <template id="card-tpl">
-    <article class="product-card">
-      <div class="card-img"><img src="" alt=""></div>
-      <div class="card-body">
-        <h3 class="card-title"></h3>
-        <div class="card-meta">
-          <span class="rating"></span>
-          <span class="reviews"></span>
-        </div>
-        <div class="price-row">
-          <span class="price"></span>
-          <span class="old-price"></span>
-        </div>
-        <div class="card-actions">
-          <button class="btn-primary add-to-cart">Añadir al carrito</button>
-          <button class="small-btn add-wish">♡</button>
-        </div>
-      </div>
-    </article>
-  </template>
+<script src="app.js"></script>
 
 </body>
 </html>
